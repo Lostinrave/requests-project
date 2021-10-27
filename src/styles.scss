@@ -5,3 +5,12 @@
 @import '~@fortawesome/fontawesome-free/scss/brands.scss';
  
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+body { 
+    background: url(assets/images/rick.jpg) no-repeat center center fixed;
+    margin-left: 0; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

@@ -20,26 +20,31 @@ export class CharacterService {
   // Susikureme nauja funkcija, gauti veikeju duomenims
 
   //Parametrai page - klaustukas gale nurodo, jog sitas parametras nera privalomas
-  getCharacters(page? : number) {
-    const params = new HttpParams();
-    if(page){
-      params.set('page', '');
-    }
-    
-  
-    //Lokalus kintamasis pasiekiamas funkcijos viduje
-    //Url kintamasis nurodyti API endpointa
-    let url : string = '';
-    //Patikriname ar page parametras buvo perduotas, tada perduodame ji i URl
-    //Tai nera teisingas aprasymo budas
-    if(page){
-      url = 'https://rickandmortyapi.com/api/character?page='+page;
-    } else {
-      url = 'https://rickandmortyapi.com/api/character';
-    }
-    
-    //Angular get http requestas
+  getCharacters(page : number) {
+    console.log("Page parametras");
+    console.log(page);
+    // Lokalus kintamasis, pasiekiamas tik sios funkcijos viduje
+
+    // url kintamasis, nurodo i koki API endpoint'a krepsimes
+
+    // Dokumentacija kokie duomenys grazinami:
+    // https://rickandmortyapi.com/documentation/#character-schema
+    let url: string = 'https://rickandmortyapi.com/api/character';
+
+    // Sukuriamas angular Http Parametru objektas
+    let params = new HttpParams();
+
+
+    // Jei http Parametru objektas jau sukurtas, naudoti append funkcija prideti papildomiems parametrams
+    // Pries siunciant uzklausa
+    params = params.append('page', page);
+
+    console.log("API Uzklausa:");
+    console.log(url);
+
+    // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
     let data = this.http.get(url, {params});
+
     return data;
   }
 

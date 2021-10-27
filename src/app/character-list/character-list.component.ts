@@ -31,6 +31,7 @@ export class CharacterListComponent implements OnInit {
     this.getCharacters();
   }
   previousPage(){
+    if(this.page > 1)
     this.page--;
 
     this.getCharacters();
