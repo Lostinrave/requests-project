@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
+
 
 // Angular dekoratorius @Injectable
 @Injectable({
@@ -17,12 +18,28 @@ export class CharacterService {
   // Klases metodai/funkcijos
 
   // Susikureme nauja funkcija, gauti veikeju duomenims
-  getCharacters() {
+
+  //Parametrai page - klaustukas gale nurodo, jog sitas parametras nera privalomas
+  getCharacters(page? : number) {
+    const params = new HttpParams();
+    if(page){
+      params.set('page', '');
+    }
+    
+  
     //Lokalus kintamasis pasiekiamas funkcijos viduje
     //Url kintamasis nurodyti API endpointa
-    let url = 'https://rickandmortyapi.com/api/character';
+    let url : string = '';
+    //Patikriname ar page parametras buvo perduotas, tada perduodame ji i URl
+    //Tai nera teisingas aprasymo budas
+    if(page){
+      url = 'https://rickandmortyapi.com/api/character?page='+page;
+    } else {
+      url = 'https://rickandmortyapi.com/api/character';
+    }
+    
     //Angular get http requestas
-    let data = this.http.get(url);
+    let data = this.http.get(url, {params});
     return data;
   }
 

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CharacterListComponent } from './character-list/character-list.component';
 import { CharacterDetailsComponent } from './character-details/character-details.component';
 import { CharacterService } from './character.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CharacterService } from './character.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   // Duomenu tiekejai
   providers: [
