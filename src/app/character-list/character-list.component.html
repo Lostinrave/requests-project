@@ -38,8 +38,8 @@
             <img class="img-fluid" [src]="character.image" [alt]="character.name" />
           </div>
         </div>
-        <div class="card-footer">
-          <button class="btn btn-primary">Button</button>
+        <div class="card-footer text-center">
+           <a [routerLink]="['/character', character.id]"><button class="btn btn-success">Character details<i class="ms-1 fas fa-eye"></i></button></a>
         </div>
       </div>
     </div>

@@ -47,6 +47,19 @@ export class CharacterService {
 
     return data;
   }
+  getCharacterByName(name : string){
 
+    let url: string = 'https://rickandmortyapi.com/api/character';
+    let params = new HttpParams();
+    params = params.append('name', name);
+    let data = this.http.get(url, {params});
 
+    return data;
+  }
+  getCharacterById(id : string | null){
+    let url: string = 'https://rickandmortyapi.com/api/character';
+    let data = this.http.get(url + "/" + id);
+
+    return data;
+  }
 }
