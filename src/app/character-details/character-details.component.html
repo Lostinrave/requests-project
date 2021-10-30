@@ -1,25 +1,39 @@
 <div class="row">
-    <div class="col-sm-8 mb-3 mt-5">
-      <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-6 justify-content-start">
-                    <div>
-                        <img class="img-fluid" [src]="character.image" [alt]="character.name" />
-                      </div>
-                </div>
-                <div class="col-sm-6 justify-content-start">
-                    <h2 class="card-title text-center mt-3">{{ character.name }}</h2>
-                    <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Species: {{character.species}}</p>
-                    <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Gender: {{character.gender}}</p>
-                    <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Origin: {{character.origin.name}}</p>
-                    <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Location: {{character.location.name}}</p>
-                    <p [ngClass]="{'text-danger': character.status == 'Dead','text-success': character.status == 'Alive'}" class="card-subtitle mt-2 mb-2 text-center fs-3">Status: {{character.status}}</p>
-                    <!-- <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Episodes: {{character.episode}}</p> -->
+  <div class="col-sm-8 mb-3 mt-5">
+    <div class="card">
+      <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6 justify-content-start">
+                <div>
+                  <img class="img-fluid" [src]="character.image" [alt]="character.name" />
                 </div>
             </div>
-          
+            <div class="col-sm-6 justify-content-start">
+                <!-- <h2 class="card-title text-center mt-3">{{ character.name }}</h2> -->
+                <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Species: {{character.species}}</p>
+                <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Gender: {{character.gender}}</p>
+                <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Origin: {{character.origin.name}}</p>
+                <p class="card-subtitle mt-2 mb-2 text-muted text-center fs-3">Location: {{character.location.name}}</p>
+                <p [ngClass]="{'text-danger': character.status == 'Dead','text-success': character.status == 'Alive'}" class="card-subtitle mt-2 mb-2 text-center fs-3">Status: {{character.status}}</p>
+            </div>
+        </div>
+        <div class="row" *ngIf="character">
+          <!-- TODO:  -->
+          <h1 class="mb-3 mt-3">{{ character?.name }}</h1>
+          <a routerLink="/"><button class="btn btn-success mb-3">Back</button></a>
+          <!-- Nuorodos i isorinius tinklapius, dazniausiai turi buti target="_blank" -->
+          <small>Data from: <a href="{{ character.url }}" target="_blank">RickAndMortyApi.com</a></small>
+      
+          <hr>
+          <!-- TODO: Character Episodes dali isketi i atskira komponenta -->
+          <h2>Character Episodes</h2>
+          <app-character-episodes [character]="character"></app-character-episodes>
+      
+      
         </div>
       </div>
+     
+      </div>
     </div>
-  </div>
+   
+</div>

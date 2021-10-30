@@ -26,6 +26,7 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { EpisodeCardComponent } from './episode-card/episode-card.component';
 import { CharacterEpisodesComponent } from './character-episodes/character-episodes.component';
+import { EpisodesListComponent } from './episodes-list/episodes-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CharacterEpisodesComponent } from './character-episodes/character-episo
     NavBarComponent,
     EpisodeCardComponent,
     CharacterEpisodesComponent,
+    EpisodesListComponent,
   ],
   imports: [
     BrowserModule,

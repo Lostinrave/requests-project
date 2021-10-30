@@ -1,9 +1,27 @@
-<!-- <div class="row"> -->
-    <!-- TODO: Neturime episode service, kad galetume gauti duomenis apie epizoda -->
-    <!-- Si dalis galetu buti atskiras komponentas atvaizduoti epizodams -->
-    <!-- Šiame komponente negalime pasiekti character kintamojo, turime ji perduoti per @Input
-    Dokumentacija, kaip perduoti informacija i kita komponenta parent >> child: https://angular.io/guide/inputs-outputs
-    -->
-    <!-- <app-episode-card class="col-6" *ngFor="let episode of character.episode" [episodeUrl]="episode"></app-episode-card>
-  
-  </div> -->
+<div class="card mb-3" *ngIf="episode">
+  <div class="card-body">
+    <div>
+      <!-- TODO: padaryti, kad paspaudus ant epizodo pavadinimo, nuvestu į epizodo puslapį -->
+      <h3>
+        {{ episode.name }}
+      </h3>
+    </div>
+
+    <div>
+      {{ episode.episode }}
+    </div>
+
+    <div>
+      Date: {{ episode.air_date }}
+    </div>
+
+    <div>
+      Characters Count: {{ episode.characters.length }}
+    </div>
+
+  </div>
+
+  <div class="card-footer">
+    <a routerLink="" class="btn btn-success">View More</a>
+  </div>
+</div>
