@@ -22,7 +22,7 @@
           <h1 class="mb-3 mt-3">{{ character?.name }}</h1>
           <a routerLink="/"><button class="btn btn-success mb-3">Back</button></a>
           <!-- Nuorodos i isorinius tinklapius, dazniausiai turi buti target="_blank" -->
-          <small>Data from: <a href="{{ character.url }}" target="_blank">RickAndMortyApi.com</a></small>
+          <small>Data from: <a [href]="character.url" target="_blank">RickAndMortyApi.com</a></small>
       
           <hr>
           <!-- TODO: Character Episodes dali isketi i atskira komponenta -->

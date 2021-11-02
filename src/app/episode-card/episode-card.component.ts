@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EpisodesService } from '../episodes.service';
 
+
 @Component({
   selector: 'app-episode-card',
   templateUrl: './episode-card.component.html',

@@ -9,9 +9,8 @@ import { EpisodesService } from '../episodes.service';
 })
 export class EpisodeDetailsComponent implements OnInit {
 
-  public episode: any;
   private id : string | null;
-  @Input() episodeUrl : any;
+  public episode : any;
   constructor(
     private route: ActivatedRoute, private _episodesService: EpisodesService
   ) { 
@@ -20,6 +19,8 @@ export class EpisodeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this._episodesService.getEpisodeById(this.id).subscribe(data => {
+      console.log("Epizodo duomenys is API:")
+      console.log(data);
       this.episode = data;
     });
   }

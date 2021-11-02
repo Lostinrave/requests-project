@@ -5,10 +5,10 @@
 </p>
 <div class="row text-white mb-3">
     <div class="col-4">
-        <small>Total Episodes: {{ episodesInfo.count }}</small>
+        <small>Total Episodes: {{ locationsInfo.count }}</small>
         <div>
         <!-- Atvaizduoti dabar perziurima puslapi -->
-        Current page: {{ page }} / {{ episodesInfo.pages }}
+        Current page: {{ page }} / {{ locationsInfo.pages }}
         </div>
     </div>
     <div class="col-4 text-end">
@@ -21,32 +21,32 @@
         </button>
       </div>
 </div>
-<div class="col-sm-8" *ngFor="let episode of episodes">
+<div class="col-sm-8" *ngFor="let location of locations">
     <div class="card mb-3">
         <div class="card-body">
           <div>
       
             <h3>
-              {{ episode.name }}
+              {{ location.name }}
             </h3>
           </div>
       
           <div>
-            {{ episode.episode }}
+            Type: {{ location.type }}
           </div>
       
           <div>
-            Date: {{ episode.air_date }}
+            Dimension: {{ location.dimension }}
           </div>
       
           <div>
-            Characters Count: {{ episode.characters.length }}
+            Residents Count: {{ location.residents.length }}
           </div>
       
         </div>
       
         <div class="card-footer">
-            <a [routerLink]="['/episodes', episode.id]"><button class="btn btn-success">Episode details<i class="ms-1 fas fa-eye"></i></button></a>
+            <a [routerLink]="['/location', location.id]"><button class="btn btn-success">Location details<i class="ms-1 fas fa-eye"></i></button></a>
         </div>
       </div>
 </div>

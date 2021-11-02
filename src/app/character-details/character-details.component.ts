@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CharacterDetailsComponent implements OnInit {
   public character: any;
   private id : string | null;
+  
 
   constructor(
     private route: ActivatedRoute, private _characterService: CharacterService
