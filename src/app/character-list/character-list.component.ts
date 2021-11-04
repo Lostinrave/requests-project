@@ -25,6 +25,7 @@ export class CharacterListComponent implements OnInit {
     this._characterService.getCharacters(this.page).subscribe((data: any) => {
       this.characters = data.results;
       this.charactersInfo = data.info;
+      // console.log(this.charactersInfo);
     });
   }
 

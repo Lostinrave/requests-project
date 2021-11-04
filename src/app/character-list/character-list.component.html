@@ -29,7 +29,8 @@
   <h1 class="text-white">Rick And Morty Characters</h1>
   <div class="row">
     <div class="col-sm-6 mb-3" *ngFor="let character of characters">
-      <div class="card">
+      <!--Si dalis iskeliama i <app-character-card> komponenta-->
+      <!-- <div class="card">
         <div class="card-title text-center">
           <h3 class=" mt-3">{{ character.name }}</h3>
         </div>
@@ -41,6 +42,7 @@
         <div class="card-footer text-center">
            <a [routerLink]="['/character', character.id]"><button class="btn btn-success">Character details<i class="ms-1 fas fa-eye"></i></button></a>
         </div>
-      </div>
+      </div> -->
+      <app-character-card [character]="character"></app-character-card>
     </div>
   </div>
