@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
+import { environment as env } from './../environments/environment';
+
 
 
 // Angular dekoratorius @Injectable
@@ -8,7 +10,7 @@ import { HttpClient, HttpParams  } from '@angular/common/http';
 })
 /* Service tipo klases atsakingos uz darba su duomenimis */
 export class CharacterService {
-
+  private url: string = env.API_URL + '/character';
   //Konstruktorius
   //Incejtiname Angular http klienta
   constructor(private http: HttpClient) {
@@ -29,7 +31,7 @@ export class CharacterService {
 
     // Dokumentacija kokie duomenys grazinami:
     // https://rickandmortyapi.com/documentation/#character-schema
-    let url: string = 'https://rickandmortyapi.com/api/character';
+    // let url: string = this.url;
 
     // Sukuriamas angular Http Parametru objektas
     let params = new HttpParams();
@@ -40,25 +42,25 @@ export class CharacterService {
     params = params.append('page', page);
 
     console.log("API Uzklausa:");
-    console.log(url);
+    console.log(this.url);
 
     // Pasinaudodami angular HttpClient issiunciame get uzklausa i nurodyta url
-    let data = this.http.get(url, {params});
+    let data = this.http.get(this.url, {params});
 
     return data;
   }
   getCharacterByName(name : string){
 
-    let url: string = 'https://rickandmortyapi.com/api/character';
+    
     let params = new HttpParams();
     params = params.append('name', name);
-    let data = this.http.get(url, {params});
+    let data = this.http.get(this.url, {params});
 
     return data;
   }
   getCharacterById(id : string | null){
-    let url: string = 'https://rickandmortyapi.com/api/character';
-    let data = this.http.get(url + "/" + id);
+    
+    let data = this.http.get(this.url + "/" + id);
 
     return data;
   }
