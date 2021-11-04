@@ -24,8 +24,11 @@ export class LocationsComponent implements OnInit {
     });
   }
   nextPage(){
-    this.page++;
-    this.getLocations();
+    if(this.page != this.locationsInfo.pages){
+      this.page++;
+      this.getLocations();
+    }
+  
   }
   previousPage(){
     if(this.page > 1)

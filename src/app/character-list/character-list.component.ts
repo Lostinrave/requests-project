@@ -29,7 +29,9 @@ export class CharacterListComponent implements OnInit {
   }
 
   nextPage(){
-    this.page++;
+    if(this.page != this.charactersInfo.pages){
+      this.page++;
+    }
     this.getCharacters();
   }
   previousPage(){

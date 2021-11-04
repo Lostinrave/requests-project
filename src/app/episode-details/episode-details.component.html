@@ -23,4 +23,12 @@
       
         <div class="card-footer">
         </div>
+
       </div>
+      <ul>
+        <li *ngFor="let character of episode.characters">
+          <a [href]="character" target="_blank">
+            {{ character }}
+          </a>
+        </li>
+      </ul>

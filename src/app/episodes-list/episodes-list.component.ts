@@ -24,7 +24,9 @@ export class EpisodesListComponent implements OnInit {
     });
   }
   nextPage(){
-    this.page++;
+    if(this.page != this.episodesInfo.pages){
+      this.page++;
+    }
     this.getEpisodes();
   }
   previousPage(){

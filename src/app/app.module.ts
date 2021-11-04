@@ -30,6 +30,7 @@ import { EpisodesListComponent } from './episodes-list/episodes-list.component';
 import { EpisodeDetailsComponent } from './episode-details/episode-details.component';
 import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
+import { CharacterCardComponent } from './character-card/character-card.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     EpisodeDetailsComponent,
     LocationsComponent,
     LocationDetailsComponent,
+    CharacterCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -62,4 +62,11 @@ export class CharacterService {
 
     return data;
   }
+  getCharacterByUrl(url: string){
+    console.log("Character service API URL");
+    console.log(url);
+    let data = this.http.get(url);
+
+    return data;
+  }
 }
