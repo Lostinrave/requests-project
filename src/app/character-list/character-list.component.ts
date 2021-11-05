@@ -12,6 +12,10 @@ export class CharacterListComponent implements OnInit {
   public charactersInfo : any = {};
   public page : number = 1;
   public name : string = '';
+  public searchOptions = {
+    'name' : '',
+    'status' : ''
+  }
   
   // Dependancy injection, injectinam character service i komponenta
   constructor(private _characterService : CharacterService) { }
@@ -20,9 +24,14 @@ export class CharacterListComponent implements OnInit {
     this.getCharacters();
   }
 
-  getCharacters(){
+  filterCharacters(name : string){
+    this.searchOptions.name = name;
+    this.getCharacters();
+  }
+
+  getCharacters(name? : string){
     // characters kintamajam priskiriame duomenis is characterService getCharacters funkcijos
-    this._characterService.getCharacters(this.page).subscribe((data: any) => {
+    this._characterService.getCharacters(this.page, this.searchOptions.name).subscribe((data: any) => {
       this.characters = data.results;
       this.charactersInfo = data.info;
       // console.log(this.charactersInfo);

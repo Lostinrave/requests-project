@@ -27,6 +27,9 @@
     </div>
   </div>
   <h1 class="text-white">Rick And Morty Characters</h1>
+  <div class="col-sm-4 mb-3">
+    <app-search-form (onFormSubmit)="filterCharacters($event)"></app-search-form>
+  </div>
   <div class="row">
     <div class="col-sm-6 mb-3" *ngFor="let character of characters">
       <!--Si dalis iskeliama i <app-character-card> komponenta-->

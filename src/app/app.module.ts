@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,8 @@ import { EpisodeDetailsComponent } from './episode-details/episode-details.compo
 import { LocationsComponent } from './locations/locations.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { CharacterCardComponent } from './character-card/character-card.component';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { PortalComponent } from './portal/portal.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,8 @@ import { CharacterCardComponent } from './character-card/character-card.componen
     LocationsComponent,
     LocationDetailsComponent,
     CharacterCardComponent,
+    SearchFormComponent,
+    PortalComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ import { CharacterCardComponent } from './character-card/character-card.componen
     MdbScrollspyModule,
     MdbTabsModule,
     MdbTooltipModule,
-    MdbValidationModule
+    MdbValidationModule,
+    FormsModule
   ],
   // Duomenu tiekejai
   providers: [

@@ -22,7 +22,7 @@ export class CharacterService {
   // Susikureme nauja funkcija, gauti veikeju duomenims
 
   //Parametrai page - klaustukas gale nurodo, jog sitas parametras nera privalomas
-  getCharacters(page : number) {
+  getCharacters(page : number, name? : string) {
     console.log("Page parametras");
     console.log(page);
     // Lokalus kintamasis, pasiekiamas tik sios funkcijos viduje
@@ -40,6 +40,10 @@ export class CharacterService {
     // Jei http Parametru objektas jau sukurtas, naudoti append funkcija prideti papildomiems parametrams
     // Pries siunciant uzklausa
     params = params.append('page', page);
+
+    if(name){
+      params = params.append('name', name);
+    }
 
     console.log("API Uzklausa:");
     console.log(this.url);
