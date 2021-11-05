@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CharacterService } from '../character.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./character-details.component.scss']
 })
 export class CharacterDetailsComponent implements OnInit {
+  @Input() public episode : any;
   public character: any;
   private id : string | null;
   
