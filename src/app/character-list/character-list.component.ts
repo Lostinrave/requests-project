@@ -12,6 +12,7 @@ export class CharacterListComponent implements OnInit {
   public charactersInfo : any = {};
   public page : number = 1;
   public name : string = '';
+  public errors: any;
   public searchOptions = {
     'name' : '',
     'status' : ''
@@ -31,11 +32,49 @@ export class CharacterListComponent implements OnInit {
 
   getCharacters(name? : string){
     // characters kintamajam priskiriame duomenis is characterService getCharacters funkcijos
-    this._characterService.getCharacters(this.page, this.searchOptions.name).subscribe((data: any) => {
-      this.characters = data.results;
-      this.charactersInfo = data.info;
-      // console.log(this.charactersInfo);
-    });
+    this._characterService.getCharacters(this.page, this.searchOptions.name)      
+    // Subscribe funkcija naudojama dirbant su Observable tipo objektais (Angular httpClient visada grazina Observabile tipa)
+    // data - kintamasis su grazintais duomenimis is musu uzklausos
+    .subscribe(
+      // Jei uzklausa buvo ivykdyta sekmingai
+      // Success callback
+      (data: any) => {
+        // Gautus duomenis priskiriame komponento kintamajam
+        // Characters kintamajam, priskiriame duomenis is characterService getCharaters funkcijos
+        this.characters = data.results;
+        this.charactersInfo = data.info;
+      },
+
+      // Jei grazintas error status code
+      // Error callback
+      (error: any) => {
+
+        // Patikriname error status koda
+        if (error.status == '404') {
+          alert("oops nothing found");
+          console.log(error);
+
+          // Priskiriame error objekta savo komponento errors masyvui,
+          // kad galetume atvaizduoti klaidos pranesima template dalyje
+          this.errors = error;
+
+          // Nustatome characters masyva i tuscia masyva, nes nebuvo rasta jokiu veikeju
+          this.characters = [];
+          // Taip pat pakeiciame charactersInfo objekto reiksmes pagal klaidos koda
+          this.charactersInfo.count = 0;
+          this.charactersInfo.pages = 0;
+        } else {
+          alert("oops something went wrong");
+        }
+
+      }
+
+      // console.log(data);
+      /*
+      Dokumentacija kokie duomenys grazinami:
+      https://rickandmortyapi.com/documentation/#character-schema
+      */
+    );
   }
 
   nextPage(){

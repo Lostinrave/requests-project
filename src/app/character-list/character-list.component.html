@@ -6,8 +6,8 @@
 </p>
 
 
-<div class="row ">
-  <div class="row text-white mb-3">
+
+  <div class="row text-white mb-3" *ngIf="charactersInfo.count > 0">
     <div class="col-6">
       <small>Total characters: {{ charactersInfo.count }}</small>
       <div>
@@ -29,6 +29,10 @@
   <h1 class="text-white">Rick And Morty Characters</h1>
   <div class="col-sm-4 mb-3">
     <app-search-form (onFormSubmit)="filterCharacters($event)"></app-search-form>
+  </div>
+  <div class="row mb-3 text-white mb-3" *ngIf="charactersInfo.count == 0">
+    <h1>Oops Nothing found. </h1>
+    <p>You have searched for: <strong>{{ searchOptions.name }}</strong>. Try something else</p>
   </div>
   <div class="row">
     <div class="col-sm-6 mb-3" *ngFor="let character of characters">
