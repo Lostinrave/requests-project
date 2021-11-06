@@ -4,6 +4,7 @@
       <div class="card-body">
           <div class="row">
             <div class="col-sm-6 justify-content-start">
+              <a routerLink="/"><button class="btn btn-success mb-3">Back</button></a>
                 <div>
                   <img class="img-fluid  card-shadow rounded-circle z-depth-2" [src]="character.image" [alt]="character.name" />
                 </div>
@@ -20,7 +21,7 @@
         <div class="row" *ngIf="character">
           <!-- TODO:  -->
           <h1 class="mb-3 mt-3">{{ character?.name }}</h1>
-          <a routerLink="/"><button class="btn btn-success mb-3">Back</button></a>
+         
           <!-- Nuorodos i isorinius tinklapius, dazniausiai turi buti target="_blank" -->
           <small>Data from: <a [href]="character.url" target="_blank">RickAndMortyApi.com</a></small>
       

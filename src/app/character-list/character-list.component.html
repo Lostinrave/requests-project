@@ -11,23 +11,29 @@
 
 
 
-  <div class="row text-white mb-3" *ngIf="charactersInfo.count > 0">
-    <div class="col-6">
+  <div class=" text-white mb-3 row" *ngIf="charactersInfo.count > 0">
+    <div class="col-sm-12 col-md-6 mb-3 ">
       <small>Total characters: {{ charactersInfo.count }}</small>
       <div>
         <!-- Atvaizduoti dabar perziurima puslapi -->
         Current page: {{ page }} / {{ charactersInfo.pages }}
       </div>
     </div>
-
-    <div class="col-6 text-end">
+    <div class="col-sm-12 col-md-6 ">
       <!-- Angular click event example -->
-      <button class="btn btn-success mx-3" (click)="previousPage()">
-        Previous Page
-      </button>
-      <button class="btn btn-success" (click)="nextPage()">
-        Next Page
-      </button>
+      <div class="d-flex justify-content-sm-start justify-content-md-end">
+
+          <button class="btn btn-success me-3" (click)="previousPage()">
+            Previous Page
+          </button>
+
+ 
+          <button class="btn btn-success" (click)="nextPage()">
+            Next Page
+          </button>
+ 
+      </div>
+     
     </div>
   </div>
   <h1 class="text-white">Rick And Morty Characters</h1>
