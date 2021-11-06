@@ -1,7 +1,7 @@
 <div *ngIf="episode">
   <div class="container">
     <div class="row justify-content-start">
-      <div class="col-sm-8 text-left">
+      <div class="col-sm-10 col-md-8 text-left">
         <div class="card mb-3 mt-3">
           <div class="card-body">
             <div>
@@ -31,7 +31,7 @@
             </h3>
           </div>
           <div class="row">
-            <div class="col-sm-4 mb-3" *ngFor="let character of characters">
+            <div class="col-lg-4 col-md-6 mb-3" *ngFor="let character of characters">
               <app-character-card [character]="character"></app-character-card>
             </div>
           </div>
